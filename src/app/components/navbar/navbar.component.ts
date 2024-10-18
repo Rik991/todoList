@@ -10,11 +10,11 @@ export class NavbarComponent {
   isOpen: boolean = false;
   searchQuery: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private route: Router) {}
 
   searchTodosByAuthor() {
     if (this.searchQuery) {
-      this.router.navigate(['/results'], {
+      this.route.navigate(['/results'], {
         queryParams: { query: this.searchQuery },
       });
     }

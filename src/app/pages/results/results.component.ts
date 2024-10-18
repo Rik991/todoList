@@ -10,7 +10,7 @@ import { iUser } from '../../interfaces/i-user';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
   searchQuery: string = '';
   filteredTodos: iTodo[] = [];
 
@@ -29,8 +29,12 @@ export class ResultsComponent implements OnInit {
 
   filterTodos() {
     if (this.searchQuery) {
-      const userSearched = this.userSvc.users.filter((user: iUser) =>
-        user.firstName.toLowerCase().includes(this.searchQuery.toLowerCase())
+      const userSearched = this.userSvc.users.filter(
+        (user: iUser) =>
+          user.firstName
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase()) ||
+          user.lastName.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
 
       const searchUserById = userSearched.map((user) => user.id);

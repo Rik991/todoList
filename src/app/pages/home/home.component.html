@@ -1,8 +1,11 @@
-<h1 class="text-center my-3">Your TO-DO List</h1>
+<div class="d-flex flex-column align-items-center m-4">
+  <h1>Your TO-DO List, Good luck!</h1>
+  <h5>check the completed Task of today!</h5>
+</div>
 
 <div class="card-container d-flex flex-wrap justify-content-around gap-3">
   <div
-    class="col-8 card d-flex flex-row align-items-center"
+    class="col-5 card d-flex flex-row align-items-center"
     *ngFor="let task of todos; let i = index"
     [ngClass]="{
       'text-bg-success': task.completed,
@@ -11,7 +14,7 @@
   >
     <!-- Numero progressivo con bordo -->
     <div class="border-end h-100 d-flex pe-2 align-items-center">
-      <span class="fw-bold">{{ i + 1 }}</span>
+      <span class="fw-bold px-2">{{ i + 1 }}</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ task.todo }}</h5>

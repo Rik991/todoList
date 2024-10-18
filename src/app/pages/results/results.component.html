@@ -6,7 +6,10 @@
   </div>
 
   <div *ngIf="filteredTodos.length > 0">
-    <div class="card mt-4" *ngFor="let todo of filteredTodos">
+    <div
+      class="card mt-4 bg-transparent border-light"
+      *ngFor="let todo of filteredTodos"
+    >
       <div class="card-body">
         <h5 class="card-title">Task: {{ todo.todo }}</h5>
 
