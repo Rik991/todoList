@@ -1,0 +1,41 @@
+<h1 class="text-center my-3">Your TO-DO List</h1>
+
+<div class="card-container d-flex flex-wrap justify-content-around gap-3">
+  <div
+    class="col-8 card d-flex flex-row align-items-center"
+    *ngFor="let task of todos; let i = index"
+    [ngClass]="{
+      'text-bg-success': task.completed,
+      'text-bg-danger': !task.completed
+    }"
+  >
+    <!-- Numero progressivo con bordo -->
+    <div class="border-end h-100 d-flex pe-2 align-items-center">
+      <span class="fw-bold">{{ i + 1 }}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ task.todo }}</h5>
+      <div class="user-card d-flex gap-2 align-items-center">
+        <p class="card-text text-light m-0">More info? Contact:</p>
+        <a routerLink="/users" class="text-decoration-none text-info">{{
+          task.userName
+        }}</a>
+        <img
+          src="{{ task.userImage }}"
+          alt="userImg"
+          class="userImg rounded-circle border"
+        />
+      </div>
+    </div>
+    <div class="check-container d-flex">
+      <input
+        type="checkbox"
+        name="taskCompleted"
+        id="taskCompleted"
+        class="custom-checkbox"
+        [checked]="task.completed"
+        (change)="activatedTask(task)"
+      />
+    </div>
+  </div>
+</div>
